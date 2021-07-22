@@ -1,0 +1,20 @@
+version: '3'
+
+services: 
+    redis-server:
+        image: 'redis'
+    node-app:
+        restart: always         # restart policy if crash
+        build: .
+        ports:
+            - "4001:8081"       # local:container port
+
+# By Default:
+# all the containers in the docker-compose will be in the same network
+# and can communicate with each other any way they please
+
+# How to run
+# how to build and run ?
+# docker-compose up 
+# rebuild and run
+# docker-compose up --build

@@ -4,8 +4,12 @@ FROM node:alpine
 # Install some dependencies
 # new node version and base image require to copy files in this folder and work here
 WORKDIR /usr/app
-COPY ./ /usr/app
+
+COPY ./package*.json /usr/app
 RUN npm install
+
+# this will avoid npm install if change is not in package.json
+COPY ./ /usr/app
 
 # Default command
 CMD ["npm", "start"]

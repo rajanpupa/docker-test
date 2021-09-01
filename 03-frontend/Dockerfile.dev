@@ -1,0 +1,15 @@
+FROM node:alpine
+
+# install
+WORKDIR /usr/app
+
+COPY package.json /usr/app/
+RUN npm install
+
+COPY . /usr/app/ 
+
+# default command
+CMD ["npm", "run", "start"]
+
+# to build
+# docker build -f Dockerfile.dev
